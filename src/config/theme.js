@@ -16,6 +16,7 @@ const theme = createTheme({
     mainBackground: palatte.white,
     mainForeground: palatte.black,
     buttonPrimaryBackground: palatte.blueDark,
+    grayText: palatte.gray,
   },
   spacing: {
     s: 8,
@@ -34,6 +35,12 @@ const theme = createTheme({
       fontSize: 18,
       lineHeight: 43,
       color: 'buttonPrimaryBackground',
+    },
+    sansPro: {
+      fontFamily: 'SansPro-Bold',
+      fontSize: 43,
+      lineHeight: 43,
+      color: 'grayText',
     },
   },
 });

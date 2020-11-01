@@ -19,6 +19,7 @@
 		D5101375F33640AFADC0C0B2 /* Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C37EEEAD6BA446DA0B4E96A /* Bold.otf */; };
 		19251643CCA34709A6A78027 /* Demi.otf in Resources */ = {isa = PBXBuildFile; fileRef = FBDA63C79E7C47C3B8F9A051 /* Demi.otf */; };
 		D040341712C14A66843CEAFA /* Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F45EC03B38E2444B87FA63AB /* Regular.otf */; };
+		82C3FAAC0A2541108170C458 /* SansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5206C59436004CF5A2AA5742 /* SansPro-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		2C37EEEAD6BA446DA0B4E96A /* Bold.otf */ = {isa = PBXFileReference; name = "Bold.otf"; path = "../assets/fonts/Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		FBDA63C79E7C47C3B8F9A051 /* Demi.otf */ = {isa = PBXFileReference; name = "Demi.otf"; path = "../assets/fonts/Demi.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		F45EC03B38E2444B87FA63AB /* Regular.otf */ = {isa = PBXFileReference; name = "Regular.otf"; path = "../assets/fonts/Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5206C59436004CF5A2AA5742 /* SansPro-Bold.ttf */ = {isa = PBXFileReference; name = "SansPro-Bold.ttf"; path = "../assets/fonts/SansPro-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				2C37EEEAD6BA446DA0B4E96A /* Bold.otf */,
 				FBDA63C79E7C47C3B8F9A051 /* Demi.otf */,
 				F45EC03B38E2444B87FA63AB /* Regular.otf */,
+				5206C59436004CF5A2AA5742 /* SansPro-Bold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				D5101375F33640AFADC0C0B2 /* Bold.otf in Resources */,
 				19251643CCA34709A6A78027 /* Demi.otf in Resources */,
 				D040341712C14A66843CEAFA /* Regular.otf in Resources */,
+				82C3FAAC0A2541108170C458 /* SansPro-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
