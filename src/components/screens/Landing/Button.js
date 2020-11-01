@@ -33,7 +33,7 @@ export default function AnimatedButton() {
           },
         ]}
         onPress={() => console.log('Hello')}>
-        <Icon name="arrow-right" size={24} />
+        <Icon name="chevron-right" size={24} />
       </TouchableOpacity>
       <Text variant="body2">Go</Text>
     </View>
