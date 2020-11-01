@@ -29,6 +29,12 @@ const theme = createTheme({
       fontSize: 16,
       lineHeight: 24,
     },
+    body2: {
+      fontFamily: 'Demi',
+      fontSize: 18,
+      lineHeight: 43,
+      color: 'buttonPrimaryBackground',
+    },
   },
 });
 
