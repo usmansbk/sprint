@@ -1,6 +1,9 @@
 import React from 'react';
+import {ThemeProvider} from '@shopify/restyle';
 import SplashScreen from 'react-native-splash-screen';
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
+import {Text} from '@components/common';
+import theme from '@config/theme';
 
 export default function App() {
   React.useEffect(() => {
@@ -11,8 +14,10 @@ export default function App() {
     return () => clearTimeout(delay);
   }, []);
   return (
-    <View>
-      <Text>Welcome</Text>
-    </View>
+    <ThemeProvider theme={theme}>
+      <View>
+        <Text variant="body">Welcome</Text>
+      </View>
+    </ThemeProvider>
   );
 }
