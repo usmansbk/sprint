@@ -1,6 +1,7 @@
 import React from 'react';
-import {View, Image, StyleSheet} from 'react-native';
-import {Text} from '@components/common';
+import {useTheme} from '@shopify/restyle';
+import {View, Image, StyleSheet, StatusBar} from 'react-native';
+// import {Text} from '@components/common';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,8 +16,14 @@ const styles = StyleSheet.create({
 });
 
 export default function Landing() {
+  const theme = useTheme();
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        {backgroundColor: theme.colors.mainBackground},
+      ]}>
+      <StatusBar barStyle="dark-content" backgroundColor="white" />
       <Image
         resizeMode="contain"
         source={require('@assets/images/logo.png')}
