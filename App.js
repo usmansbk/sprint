@@ -1,8 +1,7 @@
 import React from 'react';
 import {ThemeProvider} from '@shopify/restyle';
 import SplashScreen from 'react-native-splash-screen';
-import {View} from 'react-native';
-import {Text} from '@components/common';
+import Screens from '@components/screens';
 import theme from '@config/theme';
 
 export default function App() {
@@ -15,9 +14,7 @@ export default function App() {
   }, []);
   return (
     <ThemeProvider theme={theme}>
-      <View>
-        <Text variant="body">Welcome</Text>
-      </View>
+      <Screens />
     </ThemeProvider>
   );
 }
