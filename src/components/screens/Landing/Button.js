@@ -1,7 +1,15 @@
 import React from 'react';
 import {useTheme} from '@shopify/restyle';
-import {TouchableOpacity, View, StyleSheet} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Animated,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 import {Text, Icon} from '@components/common';
+
+const {width} = Dimensions.get('window');
 
 const SIZE = 60;
 const styles = StyleSheet.create({
@@ -25,15 +33,25 @@ export default function AnimatedButton({onPress = () => null, x}) {
   const theme = useTheme();
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={[
-          styles.button,
-          {
-            backgroundColor: theme.colors.buttonPrimaryBackground,
-          },
-        ]}
-        onPress={onPress}>
-        <Icon name="chevron-right" size={24} />
+      <TouchableOpacity onPress={onPress}>
+        <Animated.View
+          style={[
+            styles.button,
+            {
+              backgroundColor: theme.colors.buttonPrimaryBackground,
+              //   transform: [
+              //     {
+              //       //   scale: x.interpolate({
+              //       //     inputRange: [0, width],
+              //       //     outputRange: [SIZE, 150],
+              //       //     extrapolate: 'clamp',
+              //       //   }),
+              //     },
+              //   ],
+            },
+          ]}>
+          <Icon name="chevron-right" size={24} />
+        </Animated.View>
       </TouchableOpacity>
       <Text variant="body2">Go</Text>
     </View>
