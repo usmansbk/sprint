@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
 
 export default function AnimatedButton({onPress = () => null, x}) {
   const theme = useTheme();
-  console.log(x);
   return (
     <View style={styles.container}>
       <TouchableOpacity

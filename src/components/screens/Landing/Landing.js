@@ -1,14 +1,7 @@
 // @refresh reset
 import React from 'react';
 import {useTheme} from '@shopify/restyle';
-import {
-  View,
-  Image,
-  StyleSheet,
-  StatusBar,
-  Dimensions,
-  Animated,
-} from 'react-native';
+import {View, StyleSheet, StatusBar, Dimensions, Animated} from 'react-native';
 import {Text} from '@components/common';
 import Button from './Button';
 
