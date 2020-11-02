@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textPage: {
-    justifyContent: 'flex-end',
+    // justifyContent: 'flex-end',
     height: 161,
     textAlign: 'left',
   },

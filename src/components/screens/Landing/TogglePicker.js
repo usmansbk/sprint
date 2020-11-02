@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTheme} from '@shopify/restyle';
-import {View, StyleSheet, Image, Animated} from 'react-native';
+import {View, StyleSheet, Animated} from 'react-native';
 import {Text} from '@components/common';
 
 const options = [
@@ -13,6 +13,8 @@ const options = [
     label: 'RENT',
   },
 ];
+
+const TEXT_HEIGHT = 43;
 
 const styles = StyleSheet.create({
   container: {
@@ -34,8 +36,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: 'SansPro-Bold',
-    fontSize: 43,
-    lineHeight: 43,
+    fontSize: TEXT_HEIGHT,
+    lineHeight: TEXT_HEIGHT,
   },
 });
 
@@ -43,20 +45,30 @@ export default function TogglePicker({value = 'buy'}) {
   const theme = useTheme();
   const [id, setValue] = React.useState(value);
   const [isOpen, setOpen] = React.useState(false);
+  const anim = React.useRef(new Animated.Value(0)).current;
+  const transition = Animated.timing(anim, {
+    toValue: !isOpen ? TEXT_HEIGHT : 0,
+    useNativeDriver: false,
+  });
 
   const selected = options.find((item) => item.id === id);
   const other = options.find((item) => item.id !== id);
 
+  const toggle = () => {
+    setOpen(!isOpen);
+    transition.start();
+  };
+
   const onSelectItem = () => {
+    toggle();
     setValue(other.id);
-    setOpen(false);
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.row}>
         <View>
-          <Text onPress={() => setOpen(!isOpen)} variant="landingScreenPrimary">
+          <Text onPress={toggle} variant="landingScreenPrimary">
             {selected.label}
           </Text>
           <View
@@ -68,7 +80,7 @@ export default function TogglePicker({value = 'buy'}) {
             ]}
           />
         </View>
-        <Image
+        <Animated.Image
           style={[
             styles.icon,
             {
@@ -84,6 +96,7 @@ export default function TogglePicker({value = 'buy'}) {
           styles.text,
           {
             color: theme.colors.primaryBackground,
+            height: anim,
           },
         ]}
         onPress={onSelectItem}>
