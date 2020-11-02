@@ -4,6 +4,9 @@ import {View, StyleSheet, Animated, TouchableOpacity} from 'react-native';
 import {Text, Icon} from '@components/common';
 
 const SIZE = 60;
+const EXPANDED_WIDTH = 151;
+const EXPANDED_HEIGHT = 50;
+
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
@@ -33,12 +36,17 @@ export default function AnimatedButton({onPress = () => null, x, index}) {
               backgroundColor: theme.colors.buttonPrimaryBackground,
               height: x.interpolate({
                 inputRange: [0, index],
-                outputRange: [SIZE, 50],
+                outputRange: [SIZE, EXPANDED_HEIGHT],
                 extrapolate: 'clamp',
               }),
               width: x.interpolate({
                 inputRange: [0, index],
-                outputRange: [SIZE, 150],
+                outputRange: [SIZE, EXPANDED_WIDTH],
+                extrapolate: 'clamp',
+              }),
+              borderRadius: x.interpolate({
+                inputRange: [0, index],
+                outputRange: [SIZE / 2, 20],
                 extrapolate: 'clamp',
               }),
             },
