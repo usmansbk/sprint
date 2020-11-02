@@ -18,6 +18,9 @@ export default function Icon({name, size = SIZE}) {
     case 'filter':
       source = require('@assets/icons/filter.png');
       break;
+    case 'star':
+      source = require('@assets/icons/star.png');
+      break;
     default:
       source = require('@assets/icons/arrow_right.png');
       break;
