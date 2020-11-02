@@ -97,6 +97,7 @@ export default function Landing() {
                 opacity: x.interpolate({
                   inputRange: [0, width / 2],
                   outputRange: [1, 0],
+                  extrapolate: 'clamp',
                 }),
               },
             ]}
