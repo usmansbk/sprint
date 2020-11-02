@@ -109,7 +109,7 @@ const theme = createTheme({
       color: 'textBlack2',
     },
     hotDealsItemTitle: {
-      fontFamily: 'Demi',
+      fontFamily: 'Bold',
       fontSize: 15,
       lineHeight: 18,
       color: 'textPrimary',
@@ -131,6 +131,18 @@ const theme = createTheme({
       fontSize: 13,
       lineHeight: 15,
       color: 'textGray',
+    },
+    cardCaption: {
+      fontFamily: 'Regular',
+      fontSize: 11,
+      lineHeight: 20,
+      color: 'textPrimary',
+    },
+    cardTitle: {
+      fontFamily: 'Bold',
+      fontSize: 16,
+      lineHeight: 20,
+      color: 'textPrimary',
     },
   },
 });

@@ -4,15 +4,18 @@ import {useTheme} from '@shopify/restyle';
 import {IconButton} from '@components/common';
 import Filters from './Filters';
 import HotDeals from './HotDeals';
+import Cards from './Cards';
 
-const {height} = Dimensions.get('window');
+const {height, width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
   header: {
-    height: 0.34 * height,
+    height: 0.4 * height,
+    flexDirection: 'row',
+    width,
   },
   filterButton: {
     flexDirection: 'row',
@@ -21,7 +24,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Results({data: {filters = [], deals = []}}) {
+export default function Results({data: {filters = [], deals = [], cars = []}}) {
   const theme = useTheme();
   const [showFilters, toggleFilter] = React.useState(true);
   const [filter, setFilter] = React.useState('all');
@@ -55,6 +58,7 @@ export default function Results({data: {filters = [], deals = []}}) {
             onSelectFilter={(val) => setFilter(val)}
           />
         )}
+        <Cards data={cars} />
       </View>
       <HotDeals data={deals} />
     </View>
