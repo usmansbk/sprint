@@ -17,6 +17,7 @@ const theme = createTheme({
     mainForeground: palatte.black,
     buttonPrimaryBackground: palatte.blueDark,
     landingGrayText: palatte.gray,
+    primaryBackground: palatte.blueDark,
   },
   spacing: {
     s: 8,
