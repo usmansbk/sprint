@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     height: 0.4 * height,
   },
   left: {
-    width: 0.15 * width,
+    width: 0.1 * width,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   filterItemContainer: {
-    height: 100,
+    height: 85,
     width: 90,
     transform: [
       {
@@ -52,6 +52,7 @@ export default function Results({data: {filters = []}}) {
         <View style={styles.left}>
           <ScrollView
             bounces={false}
+            invertStickyHeaders
             contentContainerStyle={styles.filterList}
             showsVerticalScrollIndicator={false}>
             {filters.map((item) => (
