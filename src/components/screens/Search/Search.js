@@ -35,7 +35,7 @@ const results = {
       reviewCount: 3,
       price: '229$/day',
       image: require('@assets/cars/black.png'),
-      backgroundColor: 'carGray',
+      backgroundColor: '#FAFAFA',
     },
     {
       id: 'auto_s4',
@@ -45,7 +45,7 @@ const results = {
       reviewCount: 3,
       price: '25$/hour',
       image: require('@assets/cars/brown.png'),
-      backgroundColor: 'carGray',
+      backgroundColor: '#FAFAFA',
     },
     {
       id: 'classic_l',
@@ -55,7 +55,7 @@ const results = {
       reviewCount: 3,
       price: '99,99$/day',
       image: require('@assets/cars/white.png'),
-      backgroundColor: 'carGray',
+      backgroundColor: '#FAFAFA',
     },
     {
       id: 'gtr_r4',
@@ -65,7 +65,7 @@ const results = {
       reviewCount: 3,
       price: '320$/day',
       image: require('@assets/cars/black.png'),
-      backgroundColor: 'carGray',
+      backgroundColor: '#FAFAFA',
     },
     {
       id: 'gtr_1',
@@ -75,7 +75,7 @@ const results = {
       reviewCount: 3,
       price: '320$/day',
       image: require('@assets/cars/brown.png'),
-      backgroundColor: 'carPink',
+      backgroundColor: '#FFD4C1',
     },
     {
       id: 'gtr',
@@ -85,7 +85,7 @@ const results = {
       reviewCount: 3,
       price: '320$/day',
       image: require('@assets/cars/white.png'),
-      backgroundColor: 'carYellow',
+      backgroundColor: '#FAF0B4',
     },
   ],
 };

@@ -42,6 +42,15 @@ const styles = StyleSheet.create({
   name: {
     flex: 1,
   },
+  itemBackground: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    width: 111,
+    height: '100%',
+    // backgroundColor: 'red',
+    borderRadius: 8,
+  },
 });
 
 export default function HotDeals({data = []}) {
@@ -72,6 +81,14 @@ export default function HotDeals({data = []}) {
             },
           ]}>
           <View>
+            <View
+              style={[
+                styles.itemBackground,
+                {
+                  backgroundColor: item.backgroundColor,
+                },
+              ]}
+            />
             <Image
               source={item.image}
               style={styles.image}
