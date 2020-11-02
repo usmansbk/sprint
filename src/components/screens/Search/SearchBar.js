@@ -9,6 +9,10 @@ const matches = [
     id: 'nice_fr',
     name: 'Nice, FR',
   },
+  {
+    id: 'nice_f2',
+    name: 'Nice, FR',
+  },
 ];
 
 const styles = StyleSheet.create({
@@ -57,26 +61,33 @@ export default function SearchBar() {
           ]}
         />
       </View>
-      <View
-        style={{
-          marginHorizontal: theme.spacing.xl,
-          paddingBottom: theme.spacing.m,
-        }}>
-        {matches.map((item) => (
-          <Item
-            key={item.id}
-            label={item.name}
-            onPress={() => console.log('onPress', item.id)}
-          />
-        ))}
-      </View>
+      {!!matches.length && (
+        <View
+          style={{
+            marginHorizontal: theme.spacing.xl,
+            paddingBottom: theme.spacing.m,
+          }}>
+          {matches.map((item) => (
+            <Item
+              key={item.id}
+              label={item.name}
+              onPress={() => console.log('onPress', item.id)}
+            />
+          ))}
+        </View>
+      )}
     </View>
   );
 }
 
 const Item = ({label, onPress}) => {
+  const theme = useTheme();
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={{
+        paddingVertical: theme.spacing.s,
+      }}>
       <Text variant="searchMatch">{label}</Text>
     </TouchableOpacity>
   );
