@@ -5,6 +5,7 @@ export const palatte = {
 
   gray: '#9B9B9B',
   gray2: '#999',
+  gray3: '#FAFAFA',
   blue: '#1963D0',
   yellow: '#FFB802',
 
@@ -21,6 +22,7 @@ const theme = createTheme({
     primaryBackground: palatte.blueDark,
     textBlack: palatte.black,
     textGray: palatte.gray2,
+    searchBarInput: palatte.gray3,
   },
   spacing: {
     s: 8,

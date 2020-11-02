@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
   },
   image: {
     width: 154,
@@ -23,6 +22,8 @@ export default function Empty() {
         styles.container,
         {
           backgroundColor: theme.colors.mainBackground,
+          marginVertical: theme.spacing.xl,
+          paddingVertical: theme.spacing.xl,
         },
       ]}>
       <Image

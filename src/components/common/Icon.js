@@ -12,6 +12,9 @@ export default function Icon({name, size = SIZE}) {
     case 'chevron-right':
       source = require('@assets/icons/chevron_right.png');
       break;
+    case 'location_outline':
+      source = require('@assets/icons/location_outline.png');
+      break;
     default:
       source = require('@assets/icons/arrow_right.png');
       break;
