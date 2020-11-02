@@ -36,11 +36,17 @@ const theme = createTheme({
       lineHeight: 43,
       color: 'buttonPrimaryBackground',
     },
-    landingScreen: {
+    landingScreenGray: {
       fontFamily: 'SansPro-Bold',
       fontSize: 43,
       lineHeight: 43,
       color: 'landingGrayText',
+    },
+    landingScreenPrimary: {
+      fontFamily: 'SansPro-Bold',
+      fontSize: 43,
+      lineHeight: 43,
+      color: 'buttonPrimaryBackground',
     },
   },
 });

@@ -34,7 +34,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textPage: {
+    justifyContent: 'flex-end',
+    height: 161,
     textAlign: 'left',
+  },
+  textRow: {
+    flexDirection: 'row',
+  },
+  textSpacing: {
+    marginLeft: 10,
   },
 });
 
@@ -64,8 +72,13 @@ export default function Landing() {
         </View>
         <View style={styles.page}>
           <View style={styles.textPage}>
-            <Text variant="landingScreen">I’M LOOKING</Text>
-            <Text variant="landingScreen">TO</Text>
+            <Text variant="landingScreenGray">I’M LOOKING</Text>
+            <View style={styles.textRow}>
+              <Text variant="landingScreenGray">TO</Text>
+              <Text style={styles.textSpacing} variant="landingScreenPrimary">
+                BUY
+              </Text>
+            </View>
           </View>
         </View>
       </ScrollView>
