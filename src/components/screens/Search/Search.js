@@ -159,7 +159,8 @@ export default function Search() {
         style={[
           styles.container,
           {
-            padding: theme.spacing.l,
+            paddingHorizontal: theme.spacing.l,
+            paddingTop: theme.spacing.l,
             marginTop: theme.spacing.l * 2,
           },
         ]}>
