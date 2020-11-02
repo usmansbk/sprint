@@ -4,7 +4,7 @@ import {View, TextInput, StyleSheet} from 'react-native';
 import {Icon, Text} from '@components/common';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const dummy = [
+const matches = [
   {
     id: 'nice_fr',
     name: 'Nice, FR',
@@ -30,9 +30,9 @@ const styles = StyleSheet.create({
 
 export default function SearchBar() {
   const theme = useTheme();
-  const [matches, setMatches] = React.useState([]);
+  const [value, setValue] = React.useState('');
   const onChangeText = (text) => {
-    setMatches(text.length ? dummy : []);
+    setValue(text);
   };
 
   return (
@@ -48,6 +48,7 @@ export default function SearchBar() {
       <View style={styles.row}>
         <Icon name="location_outline" />
         <TextInput
+          value={value}
           onChangeText={onChangeText}
           underlineColorAndroid="transparent"
           autoCorrect={false}
@@ -63,7 +64,7 @@ export default function SearchBar() {
           ]}
         />
       </View>
-      {!!matches.length && (
+      {!!value.length && (
         <View
           style={{
             marginHorizontal: theme.spacing.xl,
@@ -73,7 +74,7 @@ export default function SearchBar() {
             <Item
               key={item.id}
               label={item.name}
-              onPress={() => console.log('onPress', item.id)}
+              onPress={() => setValue(item.name)}
             />
           ))}
         </View>
