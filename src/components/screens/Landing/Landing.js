@@ -61,8 +61,9 @@ export default function Landing() {
         contentContainerStyle={styles.slider}
         horizontal
         pagingEnabled
-        scrollEnabled={false}
         showsHorizontalScrollIndicator={false}
+        decelerationRate="fast"
+        bounces={false}
         snapToInterval={width}>
         <View style={styles.slide}>
           <Image
