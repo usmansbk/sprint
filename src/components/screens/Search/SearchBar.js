@@ -2,6 +2,7 @@ import React from 'react';
 import {useTheme} from '@shopify/restyle';
 import {View, TextInput, StyleSheet} from 'react-native';
 import {Icon, Text} from '@components/common';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const matches = [
   {
@@ -61,8 +62,22 @@ export default function SearchBar() {
           marginHorizontal: theme.spacing.xl,
           paddingBottom: theme.spacing.m,
         }}>
-        <Text variant="searchMatch">Hello</Text>
+        {matches.map((item) => (
+          <Item
+            key={item.id}
+            label={item.name}
+            onPress={() => console.log('onPress', item.id)}
+          />
+        ))}
       </View>
     </View>
   );
 }
+
+const Item = ({label, onPress}) => {
+  return (
+    <TouchableOpacity onPress={onPress}>
+      <Text variant="searchMatch">{label}</Text>
+    </TouchableOpacity>
+  );
+};
