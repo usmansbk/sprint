@@ -7,7 +7,14 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     height: 56,
+    flex: 1,
     alignItems: 'center',
+  },
+  input: {
+    flex: 1,
+    fontFamily: 'Regular',
+    fontSize: 20,
+    lineHeight: 21,
   },
 });
 
@@ -24,7 +31,16 @@ export default function SearchBar() {
         },
       ]}>
       <Icon name="location_outline" />
-      <TextInput />
+      <TextInput
+        underlineColorAndroid="transparent"
+        autoCorrect={false}
+        style={[
+          styles.input,
+          {
+            paddingHorizontal: theme.spacing.m,
+          },
+        ]}
+      />
     </View>
   );
 }

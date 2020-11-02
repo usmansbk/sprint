@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  header: {
+    flexDirection: 'row',
+  },
 });
 
 export default function Search() {
@@ -18,9 +21,12 @@ export default function Search() {
         styles.container,
         {
           backgroundColor: theme.colors.mainBackground,
+          padding: theme.spacing.l,
         },
       ]}>
-      <SearchBar />
+      <View style={styles.header}>
+        <SearchBar />
+      </View>
       <Empty />
     </View>
   );
