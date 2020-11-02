@@ -37,6 +37,7 @@ export default function Search() {
   const onSelectItem = (item) => {
     onChangeText(item);
     setResults([]);
+    setViewMap(!!item.length);
   };
 
   return (
