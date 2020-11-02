@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     height: 2,
     marginRight: 8,
     marginLeft: 4,
+    marginBottom: 8,
   },
   icon: {
     width: 20,
@@ -39,6 +40,12 @@ export default function BigDropDownPicker({value = 'buy'}) {
   const [isOpen, setOpen] = React.useState(false);
 
   const selected = options.find((item) => item.id === id);
+  const other = options.find((item) => item.id !== id);
+
+  const onSelectItem = () => {
+    setValue(other.id);
+    setOpen(false);
+  };
 
   return (
     <View style={styles.container}>
@@ -67,6 +74,9 @@ export default function BigDropDownPicker({value = 'buy'}) {
           source={require('@assets/icons/chevron_up_primary.png')}
         />
       </View>
+      <Text onPress={onSelectItem} variant="landingScreenPrimary">
+        {other.label}
+      </Text>
     </View>
   );
 }
