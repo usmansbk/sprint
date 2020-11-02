@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 
 export default function Results({data: {filters = []}}) {
   const theme = useTheme();
-  const filter = 'all';
+  const [filter, setFilter] = React.useState('all');
 
   return (
     <View
@@ -46,7 +46,11 @@ export default function Results({data: {filters = []}}) {
             onPress={() => console.log('Toggle filter')}
           />
         </View>
-        <Filters data={filters} filter={filter} />
+        <Filters
+          data={filters}
+          filter={filter}
+          onSelectFilter={(val) => setFilter(val)}
+        />
         <FlatList />
       </View>
     </View>

@@ -34,16 +34,21 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Filters({data = [], filter = 'all'}) {
+export default function Filters({data = [], filter = 'all', onSelectFilter}) {
   return (
     <View style={styles.left}>
       <FlatList
         inverted
+        pagingEnabled
         data={data}
         showsVerticalScrollIndicator={false}
         keyExtractor={(item) => item.id}
         renderItem={({item}) => (
-          <FilterItem {...item} selected={filter === item.id} />
+          <FilterItem
+            {...item}
+            selected={filter === item.id}
+            onPress={onSelectFilter}
+          />
         )}
       />
     </View>
@@ -51,8 +56,11 @@ export default function Filters({data = [], filter = 'all'}) {
 }
 
 const FilterItem = ({id, label, selected, onPress = () => console.log(id)}) => {
+  const _onPress = () => {
+    onPress(id);
+  };
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={_onPress}>
       <View style={styles.filterItemContainer}>
         <Text
           style={styles.filterItem}
