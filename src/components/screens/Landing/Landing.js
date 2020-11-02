@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     height: 161,
     width: 234,
   },
-  main: {
+  slider: {
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   footer: {
     alignItems: 'flex-end',
   },
-  page: {
+  slide: {
     width,
     justifyContent: 'center',
     alignItems: 'center',
@@ -58,19 +58,20 @@ export default function Landing() {
       ]}>
       <StatusBar barStyle="dark-content" backgroundColor="white" />
       <ScrollView
-        contentContainerStyle={styles.main}
+        contentContainerStyle={styles.slider}
         horizontal
         pagingEnabled
+        scrollEnabled={false}
         showsHorizontalScrollIndicator={false}
         snapToInterval={width}>
-        <View style={styles.page}>
+        <View style={styles.slide}>
           <Image
             resizeMode="contain"
             source={require('@assets/images/logo.png')}
             style={styles.logo}
           />
         </View>
-        <View style={styles.page}>
+        <View style={styles.slide}>
           <View style={styles.textPage}>
             <Text variant="landingScreenGray">I’M LOOKING</Text>
             <View style={styles.textRow}>
