@@ -42,6 +42,7 @@ export default function SearchBar() {
           styles.input,
           {
             paddingHorizontal: theme.spacing.m,
+            color: theme.colors.textPrimary,
           },
         ]}
       />

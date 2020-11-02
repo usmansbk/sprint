@@ -20,6 +20,7 @@ const theme = createTheme({
     buttonPrimaryBackground: palatte.blueDark,
     landingGrayText: palatte.gray,
     primaryBackground: palatte.blueDark,
+    textPrimary: palatte.blueDark,
     textBlack: palatte.black,
     textGray: palatte.gray2,
     searchBarInput: palatte.gray3,
