@@ -1,5 +1,12 @@
 import React from 'react';
-import {ScrollView, View, StyleSheet, FlatList, Dimensions} from 'react-native';
+import {
+  ScrollView,
+  View,
+  StyleSheet,
+  FlatList,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 import {useTheme} from '@shopify/restyle';
 import {Text} from '@components/common';
 
@@ -77,15 +84,17 @@ export default function Results({data: {filters = []}}) {
   );
 }
 
-const FilterItem = ({label, selected}) => {
+const FilterItem = ({id, label, selected, onPress = () => null}) => {
   return (
-    <View style={styles.filterItemContainer}>
-      <Text
-        style={styles.filterItem}
-        variant={selected ? 'selectedSearchFilter' : 'searchFilter'}
-        selected={selected}>
-        {label}
-      </Text>
-    </View>
+    <TouchableOpacity onPress={() => console.log(id)}>
+      <View style={styles.filterItemContainer}>
+        <Text
+          style={styles.filterItem}
+          variant={selected ? 'selectedSearchFilter' : 'searchFilter'}
+          selected={selected}>
+          {label}
+        </Text>
+      </View>
+    </TouchableOpacity>
   );
 };
