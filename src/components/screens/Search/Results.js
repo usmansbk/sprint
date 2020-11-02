@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignItems: 'center',
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
   },
 });
 
@@ -34,13 +34,7 @@ export default function Results({data: {filters = []}}) {
         },
       ]}>
       <View style={styles.header}>
-        <View
-          style={[
-            styles.filterButton,
-            {
-              paddingVertical: theme.spacing.l,
-            },
-          ]}>
+        <View style={styles.filterButton}>
           <IconButton name="filter" size={20} />
         </View>
         <Filters data={filters} filter={filter} />

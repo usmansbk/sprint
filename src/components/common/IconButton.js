@@ -9,7 +9,7 @@ export default function IconButton({name, size, onPress}) {
     <TouchableOpacity
       onPress={onPress}
       style={{
-        padding: theme.spacing.s,
+        padding: theme.spacing.m,
       }}>
       <Icon name={name} size={size} />
     </TouchableOpacity>
