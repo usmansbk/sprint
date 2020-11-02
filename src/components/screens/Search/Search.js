@@ -25,7 +25,6 @@ export default function Search() {
         styles.container,
         {
           backgroundColor: theme.colors.mainBackground,
-          // padding: theme.spacing.l,
         },
       ]}>
       <View
