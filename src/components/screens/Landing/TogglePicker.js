@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTheme} from '@shopify/restyle';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image, Animated} from 'react-native';
 import {Text} from '@components/common';
 
 const options = [
@@ -31,6 +31,11 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     margin: 8,
+  },
+  text: {
+    fontFamily: 'SansPro-Bold',
+    fontSize: 43,
+    lineHeight: 43,
   },
 });
 
@@ -74,9 +79,16 @@ export default function TogglePicker({value = 'buy'}) {
           source={require('@assets/icons/chevron_up_primary.png')}
         />
       </View>
-      <Text onPress={onSelectItem} variant="landingScreenPrimary">
+      <Animated.Text
+        style={[
+          styles.text,
+          {
+            color: theme.colors.primaryBackground,
+          },
+        ]}
+        onPress={onSelectItem}>
         {other.label}
-      </Text>
+      </Animated.Text>
     </View>
   );
 }
