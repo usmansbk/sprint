@@ -1,4 +1,3 @@
-// @refresh reset
 import React from 'react';
 import {useTheme} from '@shopify/restyle';
 import {View, StyleSheet, StatusBar, Dimensions, Animated} from 'react-native';
