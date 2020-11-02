@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {useTheme} from '@shopify/restyle';
 import {Text} from '@components/common';
+import Filters from './Filters';
 
 const {width, height} = Dimensions.get('window');
 
@@ -45,12 +46,7 @@ const styles = StyleSheet.create({
 
 export default function Results({data: {filters = []}}) {
   const theme = useTheme();
-  const filterRef = React.useRef(null);
   const filter = 'all';
-
-  React.useEffect(() => {
-    filterRef.current.scrollToEnd();
-  }, []);
 
   return (
     <View
@@ -61,40 +57,9 @@ export default function Results({data: {filters = []}}) {
         },
       ]}>
       <View style={styles.header}>
-        <View style={styles.left}>
-          <ScrollView
-            ref={filterRef}
-            bounces={false}
-            decelerationRate="fast"
-            contentContainerStyle={styles.filterList}
-            pagingEnabled={false}
-            showsVerticalScrollIndicator={false}>
-            {filters.map((item) => (
-              <FilterItem
-                key={item.id}
-                {...item}
-                selected={filter === item.id}
-              />
-            ))}
-          </ScrollView>
-        </View>
+        <Filters data={filters} filter={filter} />
         <FlatList />
       </View>
     </View>
   );
 }
-
-const FilterItem = ({id, label, selected, onPress = () => null}) => {
-  return (
-    <TouchableOpacity onPress={() => console.log(id)}>
-      <View style={styles.filterItemContainer}>
-        <Text
-          style={styles.filterItem}
-          variant={selected ? 'selectedSearchFilter' : 'searchFilter'}
-          selected={selected}>
-          {label}
-        </Text>
-      </View>
-    </TouchableOpacity>
-  );
-};

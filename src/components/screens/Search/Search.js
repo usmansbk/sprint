@@ -9,20 +9,20 @@ import SearchBar from './SearchBar';
 const results = {
   filters: [
     {
-      id: 'aston',
-      label: 'Aston Martin',
-    },
-    {
-      id: 'porshe',
-      label: 'Porshe',
+      id: 'all',
+      label: 'All results',
     },
     {
       id: 'tesla',
       label: 'Tesla',
     },
     {
-      id: 'all',
-      label: 'All results',
+      id: 'porshe',
+      label: 'Porshe',
+    },
+    {
+      id: 'aston',
+      label: 'Aston Martin',
     },
   ],
   all: [],
