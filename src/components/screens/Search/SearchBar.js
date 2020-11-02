@@ -6,7 +6,8 @@ import {Icon} from '@components/common';
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: 56,
+    // height: 56,
+    minHeight: 56,
     flex: 1,
     alignItems: 'center',
   },
