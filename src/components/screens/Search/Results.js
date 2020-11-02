@@ -38,7 +38,12 @@ const styles = StyleSheet.create({
 
 export default function Results({data: {filters = []}}) {
   const theme = useTheme();
+  const filterRef = React.useRef(null);
   const filter = 'all';
+
+  React.useEffect(() => {
+    filterRef.current.scrollToEnd();
+  }, []);
 
   return (
     <View
@@ -51,9 +56,11 @@ export default function Results({data: {filters = []}}) {
       <View style={styles.header}>
         <View style={styles.left}>
           <ScrollView
+            ref={filterRef}
             bounces={false}
-            invertStickyHeaders
+            decelerationRate="fast"
             contentContainerStyle={styles.filterList}
+            pagingEnabled={false}
             showsVerticalScrollIndicator={false}>
             {filters.map((item) => (
               <FilterItem
