@@ -40,10 +40,15 @@ export default function SearchBar({
         {
           backgroundColor: theme.colors.searchBarInput,
           borderRadius: theme.spacing.m,
-          paddingHorizontal: theme.spacing.s,
         },
       ]}>
-      <View style={styles.row}>
+      <View
+        style={[
+          styles.row,
+          {
+            paddingHorizontal: theme.spacing.s,
+          },
+        ]}>
         <Icon name="location_outline" />
         <TextInput
           value={value}
