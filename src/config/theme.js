@@ -67,6 +67,12 @@ const theme = createTheme({
       color: 'textGray',
       lineHeight: 20,
     },
+    searchMatch: {
+      fontFamily: 'Demi',
+      fontSize: 20,
+      lineHeight: 21,
+      color: 'textPrimary',
+    },
   },
 });
 

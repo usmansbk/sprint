@@ -1,21 +1,29 @@
 import React from 'react';
 import {useTheme} from '@shopify/restyle';
 import {View, TextInput, StyleSheet} from 'react-native';
-import {Icon} from '@components/common';
+import {Icon, Text} from '@components/common';
+
+const matches = [
+  {
+    id: 'nice_fr',
+    name: 'Nice, FR',
+  },
+];
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    // height: 56,
-    minHeight: 56,
     flex: 1,
-    alignItems: 'center',
   },
   input: {
     flex: 1,
     fontFamily: 'Regular',
     fontSize: 20,
     lineHeight: 21,
+    height: 56,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
 
@@ -31,22 +39,30 @@ export default function SearchBar() {
           paddingHorizontal: theme.spacing.s,
         },
       ]}>
-      <Icon name="location_outline" />
-      <TextInput
-        underlineColorAndroid="transparent"
-        autoCorrect={false}
-        keyboardType="web-search"
-        returnKeyType="search"
-        returnKeyLabel="search"
-        autoFocus
-        style={[
-          styles.input,
-          {
-            paddingHorizontal: theme.spacing.m,
-            color: theme.colors.textPrimary,
-          },
-        ]}
-      />
+      <View style={styles.row}>
+        <Icon name="location_outline" />
+        <TextInput
+          underlineColorAndroid="transparent"
+          autoCorrect={false}
+          keyboardType="web-search"
+          returnKeyType="search"
+          returnKeyLabel="search"
+          autoFocus
+          style={[
+            styles.input,
+            {
+              paddingHorizontal: theme.spacing.m,
+            },
+          ]}
+        />
+      </View>
+      <View
+        style={{
+          marginHorizontal: theme.spacing.xl,
+          paddingBottom: theme.spacing.m,
+        }}>
+        <Text variant="searchMatch">Hello</Text>
+      </View>
     </View>
   );
 }
