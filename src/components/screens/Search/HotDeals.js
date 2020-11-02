@@ -70,74 +70,7 @@ export default function HotDeals({data = []}) {
     </View>
   );
 
-  const renderItem = ({item}) => {
-    return (
-      <TouchableOpacity onPress={() => console.log('onPress')}>
-        <View
-          style={[
-            styles.itemContainer,
-            {
-              paddingVertical: theme.spacing.m,
-            },
-          ]}>
-          <View>
-            <View
-              style={[
-                styles.itemBackground,
-                {
-                  backgroundColor: item.backgroundColor,
-                },
-              ]}
-            />
-            <Image
-              source={item.image}
-              style={styles.image}
-              resizeMode="contain"
-            />
-          </View>
-          <View
-            style={[
-              styles.itemBody,
-              {
-                paddingLeft: theme.spacing.s,
-              },
-            ]}>
-            <View
-              style={[
-                styles.itemHeader,
-                {
-                  paddingVertical: theme.spacing.xs,
-                },
-              ]}>
-              <Text
-                ellipsizeMode="tail"
-                variant="hotDealsTitle"
-                style={styles.name}>
-                {item.name}
-              </Text>
-              <Text variant="hotDealsTitle">{item.price}</Text>
-            </View>
-            <Text variant="hotDealsItemSubtitle">{item.model}</Text>
-            <View
-              style={[
-                styles.itemFooter,
-                {
-                  marginVertical: theme.spacing.xs,
-                },
-              ]}>
-              <Icon name="star" size={12} />
-              <Text style={styles.textSpacing} variant="hotDealsRating">
-                {item.rating}
-              </Text>
-              <Text style={styles.textSpacing} variant="hotDealsReviewCount">
-                ({item.reviewCount})
-              </Text>
-            </View>
-          </View>
-        </View>
-      </TouchableOpacity>
-    );
-  };
+  const renderItem = ({item}) => <Item item={item} />;
   return (
     <FlatList
       stickyHeaderIndices={[0]}
@@ -148,3 +81,73 @@ export default function HotDeals({data = []}) {
     />
   );
 }
+
+const Item = ({item}) => {
+  const theme = useTheme();
+  return (
+    <TouchableOpacity onPress={() => console.log('onPress')}>
+      <View
+        style={[
+          styles.itemContainer,
+          {
+            paddingVertical: theme.spacing.m,
+          },
+        ]}>
+        <View>
+          <View
+            style={[
+              styles.itemBackground,
+              {
+                backgroundColor: item.backgroundColor,
+              },
+            ]}
+          />
+          <Image
+            source={item.image}
+            style={styles.image}
+            resizeMode="contain"
+          />
+        </View>
+        <View
+          style={[
+            styles.itemBody,
+            {
+              paddingLeft: theme.spacing.s,
+            },
+          ]}>
+          <View
+            style={[
+              styles.itemHeader,
+              {
+                paddingVertical: theme.spacing.xs,
+              },
+            ]}>
+            <Text
+              ellipsizeMode="tail"
+              variant="hotDealsTitle"
+              style={styles.name}>
+              {item.name}
+            </Text>
+            <Text variant="hotDealsTitle">{item.price}</Text>
+          </View>
+          <Text variant="hotDealsItemSubtitle">{item.model}</Text>
+          <View
+            style={[
+              styles.itemFooter,
+              {
+                marginVertical: theme.spacing.xs,
+              },
+            ]}>
+            <Icon name="star" size={12} />
+            <Text style={styles.textSpacing} variant="hotDealsRating">
+              {item.rating}
+            </Text>
+            <Text style={styles.textSpacing} variant="hotDealsReviewCount">
+              ({item.reviewCount})
+            </Text>
+          </View>
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
+};
