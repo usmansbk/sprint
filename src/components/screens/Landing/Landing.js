@@ -4,7 +4,7 @@ import {useTheme} from '@shopify/restyle';
 import {View, StyleSheet, StatusBar, Dimensions, Animated} from 'react-native';
 import {Text} from '@components/common';
 import Button from './Button';
-import Picker from './Picker';
+import TogglePicker from './TogglePicker';
 
 const {width} = Dimensions.get('screen');
 const styles = StyleSheet.create({
@@ -109,7 +109,7 @@ export default function Landing() {
             <Text variant="landingScreenGray">I’M LOOKING</Text>
             <View style={styles.textRow}>
               <Text variant="landingScreenGray">TO</Text>
-              <Picker />
+              <TogglePicker />
             </View>
           </View>
         </View>

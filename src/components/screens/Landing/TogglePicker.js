@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function BigDropDownPicker({value = 'buy'}) {
+export default function TogglePicker({value = 'buy'}) {
   const theme = useTheme();
   const [id, setValue] = React.useState(value);
   const [isOpen, setOpen] = React.useState(false);
