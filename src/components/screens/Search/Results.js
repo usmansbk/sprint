@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
 
 export default function Results({data: {filters = [], deals = []}}) {
   const theme = useTheme();
+  const [showFilters, toggleFilter] = React.useState(true);
   const [filter, setFilter] = React.useState('all');
 
   return (
@@ -43,15 +44,17 @@ export default function Results({data: {filters = [], deals = []}}) {
         <IconButton
           name="filter"
           size={20}
-          onPress={() => console.log('Toggle filter')}
+          onPress={() => toggleFilter(!showFilters)}
         />
       </View>
       <View style={styles.header}>
-        <Filters
-          data={filters}
-          filter={filter}
-          onSelectFilter={(val) => setFilter(val)}
-        />
+        {showFilters && (
+          <Filters
+            data={filters}
+            filter={filter}
+            onSelectFilter={(val) => setFilter(val)}
+          />
+        )}
       </View>
       <HotDeals data={deals} />
     </View>
