@@ -42,12 +42,18 @@ const styles = StyleSheet.create({
 
 export default function Landing() {
   const theme = useTheme();
+  const [index, setSlideIndex] = React.useState(0);
   const scrollRef = React.useRef(null);
   const x = React.useRef(new Animated.Value(0)).current;
 
-  const next = () => {
-    scrollRef.current.scrollToEnd();
-  };
+  const next = React.useCallback(() => {
+    if (index) {
+      console.log('Navigate to main app');
+    } else {
+      scrollRef.current.scrollToEnd();
+      setSlideIndex(index + 1);
+    }
+  }, [index]);
 
   return (
     <View
