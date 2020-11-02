@@ -80,6 +80,18 @@ const theme = createTheme({
       lineHeight: 21,
       color: 'textBlue',
     },
+    searchFilter: {
+      fontFamily: 'Regular',
+      fontSize: 14,
+      lineHeight: 20,
+      color: 'textGray',
+    },
+    selectedSearchFilter: {
+      fontFamily: 'Bold',
+      fontSize: 14,
+      lineHeight: 20,
+      color: 'textPrimary',
+    },
   },
 });
 

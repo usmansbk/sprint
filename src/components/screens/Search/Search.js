@@ -3,7 +3,31 @@ import {View, StyleSheet} from 'react-native';
 import {useTheme} from '@shopify/restyle';
 import {Avatar} from '@components/common';
 import Empty from './Empty';
+import Results from './Results';
 import SearchBar from './SearchBar';
+
+const results = {
+  filters: [
+    {
+      id: 'aston',
+      label: 'Aston Martin',
+    },
+    {
+      id: 'porshe',
+      label: 'Porshe',
+    },
+    {
+      id: 'tesla',
+      label: 'Tesla',
+    },
+    {
+      id: 'all',
+      label: 'All results',
+    },
+  ],
+  all: [],
+  deals: [],
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -17,7 +41,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const matches = [
+const locs = [
   {
     id: 'nice_fr',
     name: 'Nice, FR',
@@ -27,16 +51,16 @@ const matches = [
 export default function Search() {
   const theme = useTheme();
   const [value, setValue] = React.useState('');
-  const [results, setResults] = React.useState([]);
+  const [locations, setLocation] = React.useState([]);
   const [showMap, setViewMap] = React.useState();
 
   const onChangeText = (text) => {
     setValue(text);
-    setResults(text.length ? matches : []);
+    setLocation(text.length ? locs : []);
   };
   const onSelectItem = (item) => {
     onChangeText(item);
-    setResults([]);
+    setLocation([]);
     setViewMap(!!item.length);
   };
 
@@ -63,14 +87,24 @@ export default function Search() {
         </View>
         <SearchBar
           value={value}
-          results={results}
+          results={locations}
           showMap={showMap}
           onChangeText={onChangeText}
           onSelectItem={onSelectItem}
           onSubmitEditing={() => setViewMap(!!value.length)}
         />
       </View>
-      <Empty />
+      <View
+        style={[
+          styles.container,
+          {
+            marginTop: theme.spacing.xl * 2,
+            padding: theme.spacing.l,
+          },
+        ]}>
+        <Results data={results} />
+        {/* {value && !locations.length ? <Results data={results} /> : <Empty />} */}
+      </View>
     </View>
   );
 }
