@@ -34,6 +34,10 @@ export default function SearchBar() {
       <TextInput
         underlineColorAndroid="transparent"
         autoCorrect={false}
+        keyboardType="web-search"
+        returnKeyType="search"
+        returnKeyLabel="search"
+        autoFocus
         style={[
           styles.input,
           {
