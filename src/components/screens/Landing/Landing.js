@@ -5,8 +5,8 @@ import {
   Image,
   StyleSheet,
   StatusBar,
-  ScrollView,
   Dimensions,
+  Animated,
 } from 'react-native';
 import {Text} from '@components/common';
 import Button from './Button';
@@ -57,7 +57,7 @@ export default function Landing() {
         },
       ]}>
       <StatusBar barStyle="dark-content" backgroundColor="white" />
-      <ScrollView
+      <Animated.ScrollView
         contentContainerStyle={styles.slider}
         horizontal
         pagingEnabled
@@ -83,7 +83,7 @@ export default function Landing() {
             </View>
           </View>
         </View>
-      </ScrollView>
+      </Animated.ScrollView>
       <View
         style={[
           styles.footer,
