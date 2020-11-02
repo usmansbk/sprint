@@ -23,6 +23,7 @@ const theme = createTheme({
     textPrimary: palatte.blueDark,
     textBlack: palatte.black,
     textGray: palatte.gray2,
+    textBlue: palatte.blue,
     searchBarInput: palatte.gray3,
   },
   spacing: {
@@ -72,6 +73,12 @@ const theme = createTheme({
       fontSize: 20,
       lineHeight: 21,
       color: 'textPrimary',
+    },
+    textButton: {
+      fontFamily: 'Regular',
+      fontSize: 12,
+      lineHeight: 21,
+      color: 'textBlue',
     },
   },
 });

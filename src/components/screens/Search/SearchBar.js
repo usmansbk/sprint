@@ -25,14 +25,23 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
-export default function SearchBar() {
+export default function SearchBar({viewOnMap = () => null}) {
   const theme = useTheme();
   const [value, setValue] = React.useState('');
+  const [results, setResults] = React.useState([]);
+  const [showMap, setMapButton] = React.useState(false);
+
   const onChangeText = (text) => {
     setValue(text);
+    setResults(matches);
+  };
+  const onSelectItem = (item) => {
+    setValue(item);
+    setResults([]);
   };
 
   return (
@@ -62,19 +71,25 @@ export default function SearchBar() {
               paddingHorizontal: theme.spacing.m,
             },
           ]}
+          onSubmitEditing={() => setMapButton(true)}
         />
+        {showMap && (
+          <TouchableOpacity onPress={viewOnMap}>
+            <Text variant="textButton">View on map</Text>
+          </TouchableOpacity>
+        )}
       </View>
-      {!!value.length && (
+      {!!results.length && (
         <View
           style={{
             marginHorizontal: theme.spacing.xl,
             paddingBottom: theme.spacing.m,
           }}>
-          {matches.map((item) => (
+          {results.map((item) => (
             <Item
               key={item.id}
               label={item.name}
-              onPress={() => setValue(item.name)}
+              onPress={() => onSelectItem(item.name)}
             />
           ))}
         </View>
