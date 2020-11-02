@@ -4,13 +4,6 @@ import {View, TextInput, StyleSheet} from 'react-native';
 import {Icon, Text} from '@components/common';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const matches = [
-  {
-    id: 'nice_fr',
-    name: 'Nice, FR',
-  },
-];
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -30,22 +23,15 @@ const styles = StyleSheet.create({
 });
 
 export default function SearchBar({
-  openMap = () => null,
   value,
+  results = [],
+  showMap,
+  openMap = () => null,
   onChangeText = () => null,
+  onSubmitEditing = () => null,
+  onSelectItem = () => null,
 }) {
   const theme = useTheme();
-  const [results, setResults] = React.useState([]);
-  const [showMap, setMapButton] = React.useState(false);
-
-  const onChangeValue = (text) => {
-    onChangeText(text);
-    setResults(matches);
-  };
-  const onSelectItem = (item) => {
-    onChangeText(item);
-    setResults([]);
-  };
 
   return (
     <View
@@ -61,7 +47,7 @@ export default function SearchBar({
         <Icon name="location_outline" />
         <TextInput
           value={value}
-          onChangeText={onChangeValue}
+          onChangeText={onChangeText}
           underlineColorAndroid="transparent"
           autoCorrect={false}
           keyboardType="web-search"
@@ -74,7 +60,7 @@ export default function SearchBar({
               paddingHorizontal: theme.spacing.m,
             },
           ]}
-          onSubmitEditing={() => setMapButton(true)}
+          onSubmitEditing={onSubmitEditing}
         />
         {showMap && (
           <TouchableOpacity onPress={openMap}>

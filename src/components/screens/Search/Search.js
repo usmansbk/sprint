@@ -17,11 +17,26 @@ const styles = StyleSheet.create({
   },
 });
 
+const matches = [
+  {
+    id: 'nice_fr',
+    name: 'Nice, FR',
+  },
+];
+
 export default function Search() {
   const theme = useTheme();
   const [value, setValue] = React.useState('');
+  const [results, setResults] = React.useState([]);
+  const [showMap, setViewMap] = React.useState();
+
   const onChangeText = (text) => {
     setValue(text);
+    setResults(text.length ? matches : []);
+  };
+  const onSelectItem = (item) => {
+    onChangeText(item);
+    setResults([]);
   };
 
   return (
@@ -45,7 +60,14 @@ export default function Search() {
           }}>
           <Avatar />
         </View>
-        <SearchBar onChangeText={onChangeText} value={value} />
+        <SearchBar
+          value={value}
+          results={results}
+          showMap={showMap}
+          onChangeText={onChangeText}
+          onSelectItem={onSelectItem}
+          onSubmitEditing={() => setViewMap(!!value.length)}
+        />
       </View>
       <Empty />
     </View>
