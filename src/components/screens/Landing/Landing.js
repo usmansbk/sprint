@@ -78,7 +78,7 @@ export default function Landing() {
               },
             },
           ],
-          {useNativeDriver: true},
+          {useNativeDriver: false},
         )}
         contentContainerStyle={styles.slider}
         horizontal
@@ -123,7 +123,7 @@ export default function Landing() {
             marginHorizontal: theme.spacing.l,
           },
         ]}>
-        <Button onPress={next} x={x} />
+        <Button onPress={next} x={Animated.divide(x, width)} index={index} />
       </View>
     </View>
   );
