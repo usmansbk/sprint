@@ -1,3 +1,4 @@
+// @refresh reset
 import React from 'react';
 import {useTheme} from '@shopify/restyle';
 import {
@@ -48,6 +49,13 @@ const styles = StyleSheet.create({
 
 export default function Landing() {
   const theme = useTheme();
+  const scrollRef = React.useRef(null);
+  const x = React.useRef(new Animated.Value(0)).current;
+
+  const next = () => {
+    scrollRef.current.scrollToEnd();
+  };
+
   return (
     <View
       style={[
@@ -58,6 +66,21 @@ export default function Landing() {
       ]}>
       <StatusBar barStyle="dark-content" backgroundColor="white" />
       <Animated.ScrollView
+        ref={scrollRef}
+        scrollEnabled={false}
+        scrollEventThrottle={1}
+        onScroll={Animated.event(
+          [
+            {
+              nativeEvent: {
+                contentOffset: {
+                  x,
+                },
+              },
+            },
+          ],
+          {useNativeDriver: true},
+        )}
         contentContainerStyle={styles.slider}
         horizontal
         pagingEnabled
@@ -66,10 +89,18 @@ export default function Landing() {
         bounces={false}
         snapToInterval={width}>
         <View style={styles.slide}>
-          <Image
+          <Animated.Image
             resizeMode="contain"
             source={require('@assets/images/logo.png')}
-            style={styles.logo}
+            style={[
+              styles.logo,
+              {
+                opacity: x.interpolate({
+                  inputRange: [0, width / 2],
+                  outputRange: [1, 0],
+                }),
+              },
+            ]}
           />
         </View>
         <View style={styles.slide}>
@@ -92,7 +123,7 @@ export default function Landing() {
             marginHorizontal: theme.spacing.l,
           },
         ]}>
-        <Button />
+        <Button onPress={next} x={x} />
       </View>
     </View>
   );

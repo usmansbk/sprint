@@ -21,8 +21,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function AnimatedButton() {
+export default function AnimatedButton({onPress = () => null, x}) {
   const theme = useTheme();
+  console.log(x);
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -32,7 +33,7 @@ export default function AnimatedButton() {
             backgroundColor: theme.colors.buttonPrimaryBackground,
           },
         ]}
-        onPress={() => console.log('Hello')}>
+        onPress={onPress}>
         <Icon name="chevron-right" size={24} />
       </TouchableOpacity>
       <Text variant="body2">Go</Text>
