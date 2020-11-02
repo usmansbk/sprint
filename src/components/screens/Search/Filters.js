@@ -39,7 +39,6 @@ export default function Filters({data = [], filter = 'all', onSelectFilter}) {
     <View style={styles.left}>
       <FlatList
         inverted
-        pagingEnabled
         data={data}
         showsVerticalScrollIndicator={false}
         keyExtractor={(item) => item.id}

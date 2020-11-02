@@ -6,11 +6,18 @@ export const palatte = {
   gray: '#9B9B9B',
   gray2: '#999',
   gray3: '#FAFAFA',
+  gray4: '#666',
   blue: '#1963D0',
   yellow: '#FFB802',
 
+  black2: '#010101',
+
   black: '#333',
   white: '#FFF',
+
+  carYellow: '#FAF0B4',
+  carPink: '#FFD4C1',
+  carGray: '#FAFAFA',
 };
 
 const theme = createTheme({
@@ -22,11 +29,14 @@ const theme = createTheme({
     primaryBackground: palatte.blueDark,
     textPrimary: palatte.blueDark,
     textBlack: palatte.black,
+    textBlack2: palatte.black2,
     textGray: palatte.gray2,
+    textGray2: palatte.gray4,
     textBlue: palatte.blue,
     searchBarInput: palatte.gray3,
   },
   spacing: {
+    xs: 4,
     s: 8,
     m: 16,
     l: 24,
@@ -91,6 +101,36 @@ const theme = createTheme({
       fontSize: 14,
       lineHeight: 20,
       color: 'textPrimary',
+    },
+    hotDealsTitle: {
+      fontFamily: 'Demi',
+      fontSize: 18,
+      lineHeight: 21,
+      color: 'textBlack2',
+    },
+    hotDealsItemTitle: {
+      fontFamily: 'Demi',
+      fontSize: 15,
+      lineHeight: 18,
+      color: 'textPrimary',
+    },
+    hotDealsItemSubtitle: {
+      fontFamily: 'Regular',
+      fontSize: 15,
+      lineHeight: 18,
+      color: 'textPrimary',
+    },
+    hotDealsRating: {
+      fontFamily: 'Regular',
+      fontSize: 13,
+      lineHeight: 15,
+      color: 'textGray2',
+    },
+    hotDealsReviewCount: {
+      fontFamily: 'Regular',
+      fontSize: 13,
+      lineHeight: 15,
+      color: 'textGray',
     },
   },
 });
