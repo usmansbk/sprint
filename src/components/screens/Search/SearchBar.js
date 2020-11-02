@@ -29,18 +29,21 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function SearchBar({viewOnMap = () => null}) {
+export default function SearchBar({
+  openMap = () => null,
+  value,
+  onChangeText = () => null,
+}) {
   const theme = useTheme();
-  const [value, setValue] = React.useState('');
   const [results, setResults] = React.useState([]);
   const [showMap, setMapButton] = React.useState(false);
 
-  const onChangeText = (text) => {
-    setValue(text);
+  const onChangeValue = (text) => {
+    onChangeText(text);
     setResults(matches);
   };
   const onSelectItem = (item) => {
-    setValue(item);
+    onChangeText(item);
     setResults([]);
   };
 
@@ -58,7 +61,7 @@ export default function SearchBar({viewOnMap = () => null}) {
         <Icon name="location_outline" />
         <TextInput
           value={value}
-          onChangeText={onChangeText}
+          onChangeText={onChangeValue}
           underlineColorAndroid="transparent"
           autoCorrect={false}
           keyboardType="web-search"
@@ -74,7 +77,7 @@ export default function SearchBar({viewOnMap = () => null}) {
           onSubmitEditing={() => setMapButton(true)}
         />
         {showMap && (
-          <TouchableOpacity onPress={viewOnMap}>
+          <TouchableOpacity onPress={openMap}>
             <Text variant="textButton">View on map</Text>
           </TouchableOpacity>
         )}

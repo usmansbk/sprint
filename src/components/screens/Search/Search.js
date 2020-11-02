@@ -19,6 +19,11 @@ const styles = StyleSheet.create({
 
 export default function Search() {
   const theme = useTheme();
+  const [value, setValue] = React.useState('');
+  const onChangeText = (text) => {
+    setValue(text);
+  };
+
   return (
     <View
       style={[
@@ -40,7 +45,7 @@ export default function Search() {
           }}>
           <Avatar />
         </View>
-        <SearchBar />
+        <SearchBar onChangeText={onChangeText} value={value} />
       </View>
       <Empty />
     </View>
