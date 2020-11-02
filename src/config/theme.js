@@ -4,6 +4,7 @@ export const palatte = {
   blueDark: '#000A3A',
 
   gray: '#9B9B9B',
+  gray2: '#999',
   blue: '#1963D0',
   yellow: '#FFB802',
 
@@ -18,6 +19,8 @@ const theme = createTheme({
     buttonPrimaryBackground: palatte.blueDark,
     landingGrayText: palatte.gray,
     primaryBackground: palatte.blueDark,
+    textBlack: palatte.black,
+    textGray: palatte.gray2,
   },
   spacing: {
     s: 8,
@@ -48,6 +51,18 @@ const theme = createTheme({
       fontSize: 43,
       lineHeight: 43,
       color: 'buttonPrimaryBackground',
+    },
+    emptySearchTitle: {
+      fontFamily: 'Demi',
+      fontSize: 16,
+      color: 'textBlack',
+      lineHeight: 18,
+    },
+    emptySearchSubtitle: {
+      fontFamily: 'Regular',
+      fontSize: 14,
+      color: 'textGray',
+      lineHeight: 20,
     },
   },
 });

@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTheme} from '@shopify/restyle';
 import {Image, View, StyleSheet} from 'react-native';
 import {Text} from '@components/common';
 
@@ -6,6 +7,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   image: {
     width: 154,
@@ -14,14 +16,21 @@ const styles = StyleSheet.create({
 });
 
 export default function Search() {
+  const theme = useTheme();
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        {
+          backgroundColor: theme.colors.mainBackground,
+        },
+      ]}>
       <Image
         style={styles.image}
         source={require('@assets/images/location_pin.png')}
       />
-      <Text>No Location</Text>
-      <Text>Please enter your location</Text>
+      <Text variant="emptySearchTitle">No Location</Text>
+      <Text variant="emptySearchSubtitle">Please enter your location</Text>
     </View>
   );
 }
