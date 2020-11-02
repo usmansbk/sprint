@@ -102,8 +102,7 @@ export default function Search() {
             padding: theme.spacing.l,
           },
         ]}>
-        <Results data={results} />
-        {/* {value && !locations.length ? <Results data={results} /> : <Empty />} */}
+        {true ? <Results data={results} /> : <Empty />}
       </View>
     </View>
   );
