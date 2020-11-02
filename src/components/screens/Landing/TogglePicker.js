@@ -84,7 +84,11 @@ export default function TogglePicker({value = 'buy'}) {
           style={[
             styles.icon,
             {
-              transform: [{rotateX: isOpen ? '0deg' : '180deg'}],
+              transform: [
+                {
+                  rotateX: isOpen ? '0deg' : '180deg',
+                },
+              ],
             },
           ]}
           resizeMode="contain"
