@@ -1,17 +1,10 @@
 import React from 'react';
-import {
-  ScrollView,
-  View,
-  StyleSheet,
-  FlatList,
-  Dimensions,
-  TouchableOpacity,
-} from 'react-native';
+import {View, StyleSheet, FlatList, Dimensions} from 'react-native';
 import {useTheme} from '@shopify/restyle';
-import {Text} from '@components/common';
+import {IconButton} from '@components/common';
 import Filters from './Filters';
 
-const {width, height} = Dimensions.get('window');
+const {height} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
@@ -20,27 +13,11 @@ const styles = StyleSheet.create({
   header: {
     height: 0.4 * height,
   },
-  left: {
-    width: 0.1 * width,
-    justifyContent: 'center',
+  filterButton: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
     alignItems: 'center',
-  },
-  filterItem: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-  },
-  filterItemContainer: {
-    height: 85,
-    width: 90,
-    transform: [
-      {
-        rotate: '-90deg',
-      },
-      {
-        translateY: 0,
-      },
-    ],
+    backgroundColor: 'red',
   },
 });
 
@@ -57,6 +34,15 @@ export default function Results({data: {filters = []}}) {
         },
       ]}>
       <View style={styles.header}>
+        <View
+          style={[
+            styles.filterButton,
+            {
+              paddingVertical: theme.spacing.l,
+            },
+          ]}>
+          <IconButton name="filter" size={20} />
+        </View>
         <Filters data={filters} filter={filter} />
         <FlatList />
       </View>

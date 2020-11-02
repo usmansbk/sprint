@@ -15,6 +15,9 @@ export default function Icon({name, size = SIZE}) {
     case 'location_outline':
       source = require('@assets/icons/location_outline.png');
       break;
+    case 'filter':
+      source = require('@assets/icons/filter.png');
+      break;
     default:
       source = require('@assets/icons/arrow_right.png');
       break;

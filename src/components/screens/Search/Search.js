@@ -98,8 +98,8 @@ export default function Search() {
         style={[
           styles.container,
           {
-            marginTop: theme.spacing.xl * 2,
             padding: theme.spacing.l,
+            marginTop: theme.spacing.xl * 2,
           },
         ]}>
         {true ? <Results data={results} /> : <Empty />}
