@@ -22,8 +22,7 @@ export default function Empty() {
         styles.container,
         {
           backgroundColor: theme.colors.mainBackground,
-          marginVertical: theme.spacing.xl,
-          paddingVertical: theme.spacing.xl,
+          marginVertical: theme.spacing.xl * 5,
         },
       ]}>
       <Image

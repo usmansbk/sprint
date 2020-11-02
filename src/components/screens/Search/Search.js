@@ -10,6 +10,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
+    zIndex: 1000,
+    position: 'absolute',
     flexDirection: 'row',
     alignItems: 'flex-start',
   },
@@ -23,10 +25,16 @@ export default function Search() {
         styles.container,
         {
           backgroundColor: theme.colors.mainBackground,
-          padding: theme.spacing.l,
+          // padding: theme.spacing.l,
         },
       ]}>
-      <View style={styles.header}>
+      <View
+        style={[
+          styles.header,
+          {
+            padding: theme.spacing.l,
+          },
+        ]}>
         <View
           style={{
             marginRight: theme.spacing.l,
