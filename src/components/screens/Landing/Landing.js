@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Landing() {
+export default function Landing({navigation}) {
   const theme = useTheme();
   const [index, setSlideIndex] = React.useState(0);
   const scrollRef = React.useRef(null);
@@ -48,12 +48,12 @@ export default function Landing() {
 
   const next = React.useCallback(() => {
     if (index) {
-      console.log('Navigate to main app');
+      navigation.navigate('Search');
     } else {
       scrollRef.current.scrollToEnd();
       setSlideIndex(index + 1);
     }
-  }, [index]);
+  }, [index, navigation]);
 
   return (
     <View

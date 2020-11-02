@@ -1,4 +1,6 @@
+import 'react-native-gesture-handler';
 import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
 import {ThemeProvider} from '@shopify/restyle';
 import SplashScreen from 'react-native-splash-screen';
 import Screens from '@components/screens';
@@ -14,7 +16,9 @@ export default function App() {
   }, []);
   return (
     <ThemeProvider theme={theme}>
-      <Screens />
+      <NavigationContainer>
+        <Screens />
+      </NavigationContainer>
     </ThemeProvider>
   );
 }
