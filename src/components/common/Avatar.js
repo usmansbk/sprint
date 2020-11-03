@@ -1,5 +1,12 @@
 import React from 'react';
-import {Image} from 'react-native';
+import {Image, View, StyleSheet} from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default function Avatar({size = 45, uri}) {
   const url = uri || `https://i.pravatar.cc/${size}`;
@@ -8,5 +15,9 @@ export default function Avatar({size = 45, uri}) {
     width: size,
     borderRadius: size / 2,
   };
-  return <Image style={style} resizeMode="contain" source={{uri: url}} />;
+  return (
+    <View style={[styles.container, style]}>
+      <Image style={style} resizeMode="contain" source={{uri: url}} />
+    </View>
+  );
 }
