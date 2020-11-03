@@ -73,6 +73,7 @@ export default function HotDeals({data = []}) {
   const renderItem = ({item}) => <Item item={item} />;
   return (
     <FlatList
+      initialNumToRender={0}
       stickyHeaderIndices={[0]}
       data={data}
       ListHeaderComponent={renderHeader}

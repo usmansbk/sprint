@@ -40,6 +40,7 @@ export default function Filters({data = [], filter = 'all', onSelectFilter}) {
       <FlatList
         inverted
         data={data}
+        initialNumToRender={0}
         showsVerticalScrollIndicator={false}
         keyExtractor={(item) => item.id}
         renderItem={({item}) => (

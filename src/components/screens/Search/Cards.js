@@ -59,6 +59,7 @@ export default function Cards({data = []}) {
   const renderItem = ({item}) => <Item item={item} />;
   return (
     <FlatList
+      initialNumToRender={0}
       contentContainerStyle={[
         styles.container,
         {
