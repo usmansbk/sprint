@@ -18,6 +18,8 @@ export const palatte = {
   carYellow: '#FAF0B4',
   carPink: '#FFD4C1',
   carGray: '#FAFAFA',
+
+  transparent: 'transparent',
 };
 
 const theme = createTheme({
@@ -34,6 +36,8 @@ const theme = createTheme({
     textGray2: palatte.gray4,
     textBlue: palatte.blue,
     searchBarInput: palatte.gray3,
+    transparent: palatte.transparent,
+    whiteText: palatte.white,
   },
   spacing: {
     xs: 4,
@@ -41,6 +45,10 @@ const theme = createTheme({
     m: 16,
     l: 24,
     xl: 40,
+  },
+  shape: {
+    borderRadius: 20,
+    noBorder: 0,
   },
   textVariants: {
     body: {
@@ -143,6 +151,18 @@ const theme = createTheme({
       fontSize: 16,
       lineHeight: 20,
       color: 'textPrimary',
+    },
+    textButtonText: {
+      fontFamily: 'Demi',
+      fontSize: 18,
+      lineHeight: 20,
+      color: 'textPrimary',
+    },
+    textButtonPrimaryText: {
+      fontFamily: 'Demi',
+      fontSize: 18,
+      lineHeight: 20,
+      color: 'whiteText',
     },
   },
 });

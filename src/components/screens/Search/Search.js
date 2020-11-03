@@ -34,7 +34,7 @@ const results = {
       priceRate: 'day',
       rating: '5.0',
       reviewCount: 30,
-      image: require('@assets/cars/luxious_c.png'),
+      image: require('@assets/cars/alpha.png'),
     },
     {
       id: 'tesla_2017',
@@ -54,7 +54,7 @@ const results = {
       priceRate: 'hour',
       rating: '5.0',
       reviewCount: 30,
-      image: require('@assets/cars/luxious_c.png'),
+      image: require('@assets/cars/white.png'),
     },
     {
       id: 'tesla_2017_dove',
@@ -64,7 +64,7 @@ const results = {
       priceRate: 'hour',
       rating: '5.0',
       reviewCount: 30,
-      image: require('@assets/cars/luxious_c.png'),
+      image: require('@assets/cars/brown.png'),
     },
   ],
   deals: [

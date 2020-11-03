@@ -9,11 +9,13 @@ import {
 } from 'react-native';
 import {Text, Icon} from '@components/common';
 
+const ITEM_WIDTH = 220;
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
   },
   itemContainer: {
+    width: ITEM_WIDTH,
     borderRadius: 20,
     backgroundColor: '#F4F5F6',
   },
@@ -27,6 +29,9 @@ const styles = StyleSheet.create({
   },
   itemBody: {
     // backgroundColor: 'red',
+    position: 'absolute',
+    top: '50%',
+    left: -15,
   },
   image: {
     height: 90,
@@ -42,6 +47,11 @@ const styles = StyleSheet.create({
   textSpacing: {
     marginHorizontal: 2,
   },
+  button: {
+    width: ITEM_WIDTH / 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default function Cards({data = []}) {
@@ -52,7 +62,7 @@ export default function Cards({data = []}) {
       contentContainerStyle={[
         styles.container,
         {
-          paddingRight: theme.spacing.l,
+          paddingHorizontal: theme.spacing.l,
         },
       ]}
       horizontal
@@ -66,12 +76,8 @@ export default function Cards({data = []}) {
 const Item = ({item}) => {
   const theme = useTheme();
   return (
-    <TouchableOpacity
-      style={[
-        styles.itemContainer,
-        {margin: theme.spacing.l, padding: theme.spacing.l},
-      ]}>
-      <View style={styles.content}>
+    <TouchableOpacity style={[styles.itemContainer, {margin: theme.spacing.m}]}>
+      <View style={[styles.content, {padding: theme.spacing.l}]}>
         <View style={styles.itemHeader}>
           <View>
             <Text variant="cardTitle">{item.name}</Text>
@@ -85,7 +91,7 @@ const Item = ({item}) => {
         <View style={styles.itemBody}>
           <Image
             source={item.image}
-            // resizeMode="contain"
+            resizeMode="contain"
             style={styles.image}
           />
         </View>
@@ -99,11 +105,42 @@ const Item = ({item}) => {
               ({item.reviewCount})
             </Text>
           </View>
-          <View style={styles.itemFooter}>
-            <Text>Details</Text>
-            <Text>Rent</Text>
-          </View>
         </View>
+      </View>
+      <View style={styles.itemFooter}>
+        <Button>Details</Button>
+        <Button primary right>
+          Rent
+        </Button>
+      </View>
+    </TouchableOpacity>
+  );
+};
+
+const Button = ({children, primary, onPress = () => null, right}) => {
+  const theme = useTheme();
+  return (
+    <TouchableOpacity onPress={onPress}>
+      <View
+        style={[
+          styles.button,
+          {
+            borderRadius: theme.shape.borderRadius,
+            borderTopRightRadius: right
+              ? theme.shape.noBorder
+              : theme.shape.borderRadius,
+            borderBottomLeftRadius: right
+              ? theme.shape.noBorder
+              : theme.shape.borderRadius,
+            padding: theme.spacing.m,
+            backgroundColor: primary
+              ? theme.colors.buttonPrimaryBackground
+              : theme.colors.transparent,
+          },
+        ]}>
+        <Text variant={primary ? 'textButtonPrimaryText' : 'textButtonText'}>
+          {children}
+        </Text>
       </View>
     </TouchableOpacity>
   );
